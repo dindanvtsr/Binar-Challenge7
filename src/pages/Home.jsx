@@ -15,7 +15,7 @@ export default function Home({ setToken }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate()
   const [srch, setSrch] = useState('');
-  const [title, setTitle] = useState(false);
+  const [isSearching, setisSearching] = useState(false);
 
   // This variable is to dispatch the actions
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ export default function Home({ setToken }) {
           </input>
           <SearchOutlined onClick={()=> {
             clickSearch(srch)
-            setTitle(!title)
+            setisSearching(!isSearching)
             }} className="navsearch"/>
         </form>
       </div>
@@ -93,7 +93,7 @@ export default function Home({ setToken }) {
       </Carousel>
       
       {
-        title? (<h1 className='titlePopular'><b>Search Results</b></h1>)
+        isSearching? (<h1 className='titlePopular'><b>Search Results</b></h1>)
         : (<h1 className='titlePopular'><b>Movies</b></h1>)
       }
 
